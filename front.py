@@ -39,10 +39,10 @@ if st.session_state.pantalla == "inicio":
 elif st.session_state.pantalla == "documentacion":
     if st.session_state.tipo == "Digital":
         st.success("✅ Elegiste título DIGITAL.")
-        st.info("💸 Precio: $0")
+        st.info("💸 Precio: $15.000")
     elif st.session_state.tipo == "Decorativo":
         st.success("✅ Elegiste título DECORATIVO.")
-        st.info("💸 Precio: $5000")
+        st.info("💸 Precio: $30.000")
 
     st.subheader("📄 Documentación a presentar:")
     st.text("1 - DNI")
