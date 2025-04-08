@@ -50,6 +50,8 @@ elif st.session_state.pantalla == "documentacion":
     st.text("3 - Libre deuda biblioteca FACENA")
     st.text("4 - Formulario de cotejo de ficha académica")
 
+    st.text("¿Tenés dudas con alguna documentación?")
+
     doc_input = st.text_input("Ingresá el número de la opción:", key="doc_input")
 
     if st.button("Ver información"):
