@@ -17,19 +17,23 @@ def reiniciar():
     st.session_state.tipo = ""
     st.session_state.documento = ""
     st.session_state.entrada = ""
+    st.session_state.tipo_input = ""
+    st.session_state.doc_input = ""
+    st.session_state.next_input = ""
 
 # Pantalla de inicio
 if st.session_state.pantalla == "inicio":
     st.subheader("¿Qué tipo de título querés tramitar?")
     st.text("1 - Digital")
     st.text("2 - Decorativo")
-    st.session_state.entrada = st.text_input("Ingresá el número de tu elección:", key="tipo_input")
+    
+    entrada = st.text_input("Ingresá el número de tu elección:", key="tipo_input")
 
     if st.button("Continuar"):
-        if st.session_state.entrada == "1":
+        if entrada == "1":
             st.session_state.tipo = "Digital"
             st.session_state.pantalla = "documentacion"
-        elif st.session_state.entrada == "2":
+        elif entrada == "2":
             st.session_state.tipo = "Decorativo"
             st.session_state.pantalla = "documentacion"
         else:
@@ -49,26 +53,28 @@ elif st.session_state.pantalla == "documentacion":
     st.text("2 - Libre deuda biblioteca UNNE")
     st.text("3 - Libre deuda biblioteca FACENA")
     st.text("4 - Formulario de cotejo de ficha académica")
-
+    
     st.text("¿Tenés dudas con alguna documentación?")
 
+    st.text("5 - Finalizar")
     doc_input = st.text_input("Ingresá el número de la opción:", key="doc_input")
+    
 
     if st.button("Ver información"):
-        if doc_input == "1":
-            st.session_state.documento = "DNI"
+        opciones = {
+            "1": "DNI",
+            "2": "Libre deuda biblioteca UNNE",
+            "3": "Libre deuda biblioteca FACENA",
+            "4": "Formulario de cotejo de ficha académica"
+        }
+
+        if doc_input in opciones:
+            st.session_state.documento = opciones[doc_input]
             st.session_state.pantalla = "info_documento"
-        elif doc_input == "2":
-            st.session_state.documento = "Libre deuda biblioteca UNNE"
-            st.session_state.pantalla = "info_documento"
-        elif doc_input == "3":
-            st.session_state.documento = "Libre deuda biblioteca FACENA"
-            st.session_state.pantalla = "info_documento"
-        elif doc_input == "4":
-            st.session_state.documento = "Formulario de cotejo de ficha académica"
-            st.session_state.pantalla = "info_documento"
+        elif doc_input == "5":
+            st.session_state.pantalla = "fin"
         else:
-            st.warning("❌ Opción no válida. Ingresá un número del 1 al 4.")
+            st.warning("❌ Opción no válida. Ingresá un número del 1 al 5.")
 
 # Pantalla de información sobre documentación
 elif st.session_state.pantalla == "info_documento":
