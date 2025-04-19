@@ -84,11 +84,11 @@ elif st.session_state.pantalla == "info_documento":
     if doc == "DNI":
         st.write("🪪 DNI: Presentar frente y dorso del DNI en formato PDF.")
     elif doc == "Libre deuda biblioteca UNNE":
-        st.write("📚 Libre Deuda UNNE: Se solicita en la biblioteca central de la UNNE.")
+        st.write("📚 Libre Deuda UNNE: Se solicita en la biblioteca central de la UNNE enviando un correo a ososa@bib.unne.edu.ar.")
     elif doc == "Libre deuda biblioteca FACENA":
-        st.write("📚 Libre Deuda FACENA: Solicitá en la biblioteca de la facultad.")
+        st.write("📚 Libre Deuda FACENA: Solicitá en la biblioteca de la facultad o enviando un correo a biblioteca@exa.unne.edu.ar.")
     elif doc == "Formulario de cotejo de ficha académica":
-        st.write("📝 Formulario de Cotejo: Lo obtenés en la oficina académica o desde la web de la facultad.")
+        st.write("📝 Formulario de Cotejo: Lo obtenés en la oficina académica o desde la web de la facultad. Aqui https://exa.unne.edu.ar/graduados/docs/Solicitud%20de%20Cotejo%20de%20Ficha%20Academica.docx")
 
     st.subheader("¿Qué querés hacer ahora?")
     st.text("1 - Consultar otra documentación")
