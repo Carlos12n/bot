@@ -111,5 +111,6 @@ elif st.session_state.pantalla == "info_documento":
 elif st.session_state.pantalla == "fin":
     st.balloons()
     st.success("🎓 ¡Gracias por usar el asistente de trámite de título! ¡Éxitos!")
+    st.text("RECUERDA: La documentación mencionada en los puntos 2, 3, 4 y 5, deberá ser enviada a la Dirección Gestión Estudios por correo electrónico (estudios.titulos@exa.unne.edu.ar)")
     if st.button("Volver a empezar"):
         reiniciar()
