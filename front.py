@@ -17,9 +17,10 @@ def reiniciar():
     st.session_state.tipo = ""
     st.session_state.documento = ""
     st.session_state.entrada = ""
-    st.session_state.tipo_input = ""
-    st.session_state.doc_input = ""
-    st.session_state.next_input = ""
+    # 🔧 NO reiniciamos los valores que están ligados a keys de widgets
+    # st.session_state.tipo_input = ""
+    # st.session_state.doc_input = ""
+    # st.session_state.next_input = ""
 
 # Pantalla de inicio
 if st.session_state.pantalla == "inicio":
@@ -59,7 +60,6 @@ elif st.session_state.pantalla == "documentacion":
     st.text("5 - Finalizar")
     doc_input = st.text_input("Ingresá el número de la opción:", key="doc_input")
     
-
     if st.button("Ver información"):
         opciones = {
             "1": "DNI",
@@ -84,11 +84,11 @@ elif st.session_state.pantalla == "info_documento":
     if doc == "DNI":
         st.write("🪪 DNI: Presentar frente y dorso del DNI en formato PDF.")
     elif doc == "Libre deuda biblioteca UNNE":
-        st.write("📚 Libre Deuda UNNE: Se solicita en la biblioteca central de la UNNE enviando un correo a ososa@bib.unne.edu.ar.")
+        st.write("📚 Libre Deuda UNNE: Se solicita en la biblioteca central de la UNNE.")
     elif doc == "Libre deuda biblioteca FACENA":
-        st.write("📚 Libre Deuda FACENA: Solicitá en la biblioteca de la facultad o enviando un correo a biblioteca@exa.unne.edu.ar.")
+        st.write("📚 Libre Deuda FACENA: Solicitá en la biblioteca de la facultad.")
     elif doc == "Formulario de cotejo de ficha académica":
-        st.write("📝 Formulario de Cotejo: Lo obtenés en la oficina académica o desde la web de la facultad. Aqui https://exa.unne.edu.ar/graduados/docs/Solicitud%20de%20Cotejo%20de%20Ficha%20Academica.docx")
+        st.write("📝 Formulario de Cotejo: Lo obtenés en la oficina académica o desde la web de la facultad.")
 
     st.subheader("¿Qué querés hacer ahora?")
     st.text("1 - Consultar otra documentación")
@@ -111,6 +111,5 @@ elif st.session_state.pantalla == "info_documento":
 elif st.session_state.pantalla == "fin":
     st.balloons()
     st.success("🎓 ¡Gracias por usar el asistente de trámite de título! ¡Éxitos!")
-    st.text("RECUERDA: La documentación mencionada anteriormente, deberá ser enviada a la Dirección Gestión Estudios por correo electrónico (estudios.titulos@exa.unne.edu.ar)")
     if st.button("Volver a empezar"):
         reiniciar()
