@@ -21,16 +21,17 @@ def reiniciar():
    
 
 # Pantalla de inicio, aqui damos las 2 opciones pincipales
-if st.session_state.pantalla == "inicio":
+#EMPIEZA LA BASE DEL CONOCIMIENTO CONFORMADO POR TODAS LAS REGLAS
+if st.session_state.pantalla == "inicio": #primer regla y ya se activa el motor de inferencia en la ejecucion. 
     st.subheader("¿Qué tipo de título querés tramitar?")
     st.text("1 - Digital")
     st.text("2 - Decorativo")
     
-    entrada = st.text_input("Ingresá el número de tu elección:", key="tipo_input")
+    entrada = st.text_input("Ingresá el número de tu elección:", key="tipo_input") #el valor cargado en el input va formando parte de la memoria de trabajo
 
-    if st.button("Continuar"):
+    if st.button("Continuar"): #regla segunda
         if entrada == "1":
-            st.session_state.tipo = "Digital"
+            st.session_state.tipo = "Digital" 
             st.session_state.pantalla = "documentacion"
         elif entrada == "2":
             st.session_state.tipo = "Decorativo"
@@ -82,9 +83,9 @@ elif st.session_state.pantalla == "info_documento":
     if doc == "DNI":
         st.write("🪪 DNI: Presentar frente y dorso del DNI en formato PDF.")
     elif doc == "Libre deuda biblioteca UNNE":
-        st.write("📚 Libre Deuda UNNE: Se solicita en la biblioteca central de la UNNE.")
+        st.write("📚 El Libre Deuda UNNE se solicita en la biblioteca central de unne vía correo bibliotecacentral@gmail.com.")
     elif doc == "Libre deuda biblioteca FACENA":
-        st.write("📚 Libre Deuda FACENA: Solicitá en la biblioteca de la facultad.")
+        st.write("📚 El Libre Deuda FaCENA se solicita en la facultad vía correo bibliotecaFacena@gmail.com.")
     elif doc == "Formulario de cotejo de ficha académica":
         st.write("📝 Formulario de Cotejo: Lo obtenés en la oficina académica o desde la web de la facultad.")
 
