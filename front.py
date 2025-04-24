@@ -1,4 +1,4 @@
-import streamlit as st
+import streamlit as st #importo la libreria de streamlite
 
 # Inicializar el estado de sesión
 if "pantalla" not in st.session_state:
@@ -12,17 +12,15 @@ if "entrada" not in st.session_state:
 
 st.title("🎓 Asistente para Trámite de Título")
 
+#funcion que reinicia la aplicacion, el volver al principio
 def reiniciar():
     st.session_state.pantalla = "inicio"
     st.session_state.tipo = ""
     st.session_state.documento = ""
     st.session_state.entrada = ""
-    # 🔧 NO reiniciamos los valores que están ligados a keys de widgets
-    # st.session_state.tipo_input = ""
-    # st.session_state.doc_input = ""
-    # st.session_state.next_input = ""
+   
 
-# Pantalla de inicio
+# Pantalla de inicio, aqui damos las 2 opciones pincipales
 if st.session_state.pantalla == "inicio":
     st.subheader("¿Qué tipo de título querés tramitar?")
     st.text("1 - Digital")
